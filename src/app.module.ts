@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserResolver } from './user/user.resolver';
-import {GraphQLFederationModule} from '@nestjs/graphql';
-import { PostResolver } from './post/post.resolver';
+import { GraphQLFederationModule } from '@nestjs/graphql';
 
 @Module({
   imports: [
@@ -14,6 +13,6 @@ import { PostResolver } from './post/post.resolver';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, UserResolver, PostResolver],
+  providers: [AppService, UserResolver],
 })
 export class AppModule {}
