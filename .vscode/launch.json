@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Nest in development",
+      "request": "launch",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/",
+      "runtimeArgs": ["run-script", "start:dev", "--inspect"],
+      "runtimeExecutable": "npm",
+      "type": "pwa-node"
+    }
+  ]
+}

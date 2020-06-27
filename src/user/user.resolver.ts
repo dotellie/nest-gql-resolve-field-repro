@@ -3,14 +3,26 @@ import {
   ResolveField,
   Query,
   ResolveReference,
+  Mutation,
+  Args,
 } from '@nestjs/graphql';
-import { User } from './user.model';
+import { User, UserType } from './user.model';
 
 @Resolver(() => User)
 export class UserResolver {
   @ResolveField(() => String)
   resolveSomething() {
     return 'something';
+  }
+
+  @Mutation(() => String)
+  something() {
+    return 'something';
+  }
+
+  @Mutation(() => User)
+  addUser(@Args({ type: () => UserType, name: 'type' }) type: UserType) {
+    return this.makeUser();
   }
 
   @Query(() => User)
@@ -25,6 +37,6 @@ export class UserResolver {
   }
 
   private makeUser() {
-    return { id: 'hi', somethingElse: 'also hi' };
+    return { id: 'hi', type: UserType.CUSTOMER };
   }
 }
